@@ -53,7 +53,7 @@ async def get_max_duration(year:int,platform:str,duration_type:str):
 @app.get('/get_score_count/({platform}, {score},{year})')
 async def get_score_count(platform:str,score:float, year:int ): 
    
-   df_1 = pd.read_parquet('Datasets/df1_.parquet')
+   df_1 = pd.read_parquet('Datasets/df_1.parquet')
    movie=((df_1['plataforma']==platform)&(df_1['score']>score) & (df_1['year']==year) ).sum()
    return f" {platform}: tiene {movie} peliculas con un score mayor a {score}  " 
  
