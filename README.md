@@ -4,7 +4,7 @@
 
 *El presente proyecto se desarrolla para dar cumplimiento a las actividades planteadas en la etapa de labs en el Bootcamp de Data Science de [Soy Henry](https://www.soyhenry.com/). Pretende abarcar todo el ciclo de vida de un proyecto de Machine Learning  desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML.*<br>
 
-## Introducción
+## 1. Introducción
 
 Se realiza la ingesta y análisis a datos informativos de series y películas de las plataformas (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que por medio de Ciencia de Datos y Machine Learning  permita generar recomendaciones en las aplicaciones de estas plataformas de streaming a los usuarios nuevos o activos. <br>
 
@@ -16,14 +16,14 @@ Se implementa un modelo de ML
 
 
 
-## Objetivos
+## 2. Objetivos
 <hr>
 
-## Desarrollo
+## 3. Desarrollo
 
 Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 
-**1. Limpieza de datos:**
+**3.1. ETL Limpieza de datos:**
 
 * *Generar campo id: Cada id se compondrá de la primera letra del nombre de la plataforma, seguido del show_id ya presente en los datasets (ejemplo para títulos de Amazon = as123)*
 
@@ -36,7 +36,7 @@ Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 * *El campo duration debe convertirse en dos campos: duration_int y duration_type. El primero será un integer y el segundo un string indicando la unidad de medición de duración: min (minutos) o season (temporadas).*
 
 
-**2. Desarrollo API:**  disponibilizar los datos para realizar las siguientes consultas:
+**3.2. Desarrollo API:**  disponibilizar los datos para realizar las siguientes consultas:
 
 * *Película con mayor duración con filtros opcionales de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (la función debe llamarse get_max_duration(year, platform, duration_type))*
 
@@ -46,23 +46,24 @@ Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 
 * *Actor que más se repite según plataforma y año. (La función debe llamarse get_actor(platform, year))*
 
-**3. Deployment**
+**3.3. Deployment**
 
-**4. Sistema de recomendación ML**
+**3.4. EDA**
+
+**3.5. Sistema de recomendación ML**
 <hr>
 
 
-## Recursos implementados:
+## 4. Recursos implementados
 
 Python Version: 3.9<br>
-Packages: pandas, numpy<br>
-Docker<br>
+Packages: uvicorn, pandas, matplotlib, seaborn<br>
 Render<br>
 Framework FastAPI <hr>
 
-## Limpieza de datos
+### 3.1. ETL Limpieza de datos
 
-[**Origen de los datos**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing) Los datasets tienen  información acerca de Movies y Tv Shows de  Netflix, Amazon, Hulu y Disney; tienen columnas como el año de publicación, la duración (en minutos o temporadas), el año que se subió a la plataforma, el cast, director, entre otros.<br>
+El proceso de ETL se realiza con este [**Origen de los datos**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing).<br>
 
 - Se cargan los datos para su normalización.<br>
 
@@ -70,30 +71,36 @@ Framework FastAPI <hr>
 
 - Se realiza los requerimientos [Soy Henry](https://www.soyhenry.com/).<br>
 
-- Se crean dos datasets generales para realizar consultas. Uno es un **.csv**, tiene los datos de todas las peliculas y series. Mientras el otro es un **.parquet** almacena todas las calificaciones realizadas por usuarios en las plataformas (*se pueden consultar en:* [Datasets](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/tree/main/Datasets)).<br>
+- Se crean dos datasets para realizar consultas: ( [**df.csv** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df.csv) tiene los datos de todas las peliculas y series. ) & ([**df_1.parquet** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df_1.parquet): almacena calificaciones realizadas por usuarios en las plataformas).<br>
 
-*Los procesos realizados están en:* [**EDA_report**](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/Notebooks/EDA_report.ipynb)<hr>
+*Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/1.ETL_report.ipynb)<hr>
 
 
-## Desarrollo API
+### 3.2. Desarrollo API
 
 Se utiliza el Framework FastAPI basado en python.<br>
 
 - Se generan las consultas solicitadas.<br>
 
-**API:** [**main.py**](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/main.py)
+*Los procesos realizados están en el .py:* [**main.py**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/main.py)
 <hr>
 
 
-## Deployment
+### 3.3. Deployment
 
-Se implementa la nube de[Render](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
-[DockerFile](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/DockerFile)<br>
-[****]() <hr>
+Se implementa la nube del web service gratuito que proporciona [Render.com](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
 
-## Sistema de recomendación ML
+*Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
+ <hr>
+
+### 3.4. Análisis Exploratorio de datos EDA
+
+*Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/2.EDA_report.ipynb)<hr>
+
+### 3.5. Sistema de recomendación ML
 
 [**ML model**](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/Notebooks/ML_model.ipynb)
 <hr>
 
-## Conclución
+## 5. Conclución
+## 6. Recomendaciones
