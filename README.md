@@ -10,7 +10,7 @@ Se realiza la ingesta y análisis a datos informativos de series y películas de
 
 Se cuenta con doce (12) datasets. Los cuales contienen las películas/series de cada plataforma de streaming e información de las calificaciones de películas generadas por los usuarios de estas aplicaciones. Se aplican las transformaciones pertinentes a los datasets para disponibilizar los datos limpios y generar consultas a través de una API construida en un entorno virtual dockerizado.<br>
 
-Se implementa un modelo de ML 
+Se implementa un modelo de machine learnig ML no supervisado para  
 
 <hr>
 
@@ -94,6 +94,27 @@ Se implementa la nube del web service gratuito que proporciona [Render.com](http
  <hr>
 
 ### 3.4. Análisis Exploratorio de datos EDA
+
+Se analiza la distribución de los datos.<br>
+
+Se determina que:
+
+*115077 usuarios realizaron 11005757  calificaciones a peliculas/series en las distintas plataformas streaming con un score de 1 a 5.*
+
+| score |    %    |
+|:-----:|:-------:|
+|   1  |  4.67 % |
+|   2  |  8.24 % |
+|   3  | 25.07 % |
+|   4  | 39.01 % |
+|   5  | 23.02 % |
+
+*Los usuarios ven más películas que series.*<br>
+*La plataforma que más visualizaciones tiene es netflix.*<br>
+*Las dos películas más vistas con más de 560 reseñas son de amazon "from other worlds" y "the organization".*<br>
+*El género de peliculas o series que más visualizaciones tiene es "comedia".*
+
+<img src="_src/1.png" width="700" height="400px">
 
 *Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/2.EDA_report.ipynb)<hr>
 
