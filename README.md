@@ -6,24 +6,19 @@
 
 ## 1. Introducción
 
-Se realiza la ingesta y análisis a datos informativos de series y películas de las plataformas (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que por medio de Ciencia de Datos y Machine Learning  permita generar recomendaciones en las aplicaciones de estas plataformas de streaming a los usuarios nuevos o activos. <br>
+Se realiza la ingesta y análisis a datos informativos de series y películas de las plataformas (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que por medio de Ciencia de Datos y Machine Learning  permita generar recomendaciones en las aplicaciones de estas plataformas de streaming a  usuarios activos que realizaron reseñas a peliculas o series que hayan visto. <br>
 
 Se cuenta con doce (12) datasets. Los cuales contienen las películas/series de cada plataforma de streaming e información de las calificaciones de películas generadas por los usuarios de estas aplicaciones. Se aplican las transformaciones pertinentes a los datasets para disponibilizar los datos limpios y generar consultas a través de una API construida en un entorno virtual dockerizado.<br>
 
-Se implementa un modelo de machine learnig ML no supervisado para  
-
+Se implementa un modelo de machine learnig ML no supervisado. Usando la tecnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de peliculas y series del usuario dada sus calificaciones históricas en las plataformas de streaming.
 <hr>
 
 
-
-## 2. Objetivos
-<hr>
-
-## 3. Desarrollo
+## 2. Desarrollo
 
 Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 
-**3.1. ETL Limpieza de datos:**
+**2.1. ETL Limpieza de datos:**
 
 * *Generar campo id: Cada id se compondrá de la primera letra del nombre de la plataforma, seguido del show_id ya presente en los datasets (ejemplo para títulos de Amazon = as123)*
 
@@ -36,7 +31,7 @@ Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 * *El campo duration debe convertirse en dos campos: duration_int y duration_type. El primero será un integer y el segundo un string indicando la unidad de medición de duración: min (minutos) o season (temporadas).*
 
 
-**3.2. Desarrollo API:**  disponibilizar los datos para realizar las siguientes consultas:
+**2.2. Desarrollo API:**  disponibilizar los datos para realizar las siguientes consultas:
 
 * *Película con mayor duración con filtros opcionales de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (la función debe llamarse get_max_duration(year, platform, duration_type))*
 
@@ -46,24 +41,24 @@ Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 
 * *Actor que más se repite según plataforma y año. (La función debe llamarse get_actor(platform, year))*
 
-**3.3. Deployment**
+**2.3. Deployment**
 
-**3.4. EDA**
+**2.4. EDA**
 
-**3.5. Sistema de recomendación ML**
+**2.5. Sistema de recomendación ML**
 <hr>
 
 
-## 4. Recursos implementados
+## 3. Recursos implementados
 
 Python Version: 3.9<br>
-Packages: uvicorn, pandas, matplotlib, seaborn<br>
+Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise<br>
 Render<br>
 Framework FastAPI <hr>
 
-### 3.1. ETL Limpieza de datos
+### 2.1. ETL Limpieza de datos
 
-El proceso de ETL se realiza con este [**Origen de los datos**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing).<br>
+El proceso de ETL se realiza con estos datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing) y se implementa la librería de pandas para las trasformaciones necesarias.<br>
 
 - Se cargan los datos para su normalización.<br>
 
@@ -76,7 +71,7 @@ El proceso de ETL se realiza con este [**Origen de los datos**](https://drive.go
 *Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/1.ETL_report.ipynb)<hr>
 
 
-### 3.2. Desarrollo API
+### 2.2. Desarrollo API
 
 Se utiliza el Framework FastAPI basado en python.<br>
 
@@ -86,20 +81,20 @@ Se utiliza el Framework FastAPI basado en python.<br>
 <hr>
 
 
-### 3.3. Deployment
+### 2.3. Deployment
 
 Se implementa la nube del web service gratuito que proporciona [Render.com](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
 
 *Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
  <hr>
 
-### 3.4. Análisis Exploratorio de datos EDA
+### 2.4. Análisis Exploratorio de datos EDA
 
-Se analiza la distribución de los datos.<br>
+Se usan las librerias de Matplotlib y Seaborn para el desarrollo de gráficas que permitan analizar la distribución de los datos previamente transformados.<br>
 
 Se determina que:
 
-*115077 usuarios realizaron 11005757  calificaciones a peliculas/series en las distintas plataformas streaming con un score de 1 a 5.*
+*115077 usuarios realizaron 11005757  calificaciones a películas/series en las distintas plataformas streaming con un score de 1 a 5.*
 
 | score |    %    |
 |:-----:|:-------:|
@@ -109,16 +104,23 @@ Se determina que:
 |   4  | 39.01 % |
 |   5  | 23.02 % |
 
-*Los usuarios ven más películas que series.*<br>
-*La plataforma que más visualizaciones tiene es netflix.*<br>
+*Los usuarios ven en las plataformas de streaming más películas que series.*<br>
+*La plataforma de streaming que más visualizaciones tiene es netflix.*<br>
 *Las dos películas más vistas con más de 560 reseñas son de amazon "from other worlds" y "the organization".*<br>
 *El género de peliculas o series que más visualizaciones tiene es "comedia".*
 
-<img src="_src/1.png" width="700" height="400px">
+<img src="_src/1.png" width="700" height="500px">
 
 *Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/2.EDA_report.ipynb)<hr>
 
-### 3.5. Sistema de recomendación ML
+### 2.5. Sistema de recomendación ML
+
+Se usa la librería Suprise, Gradio.<br>
+
+- Se instancia y se entrena un modelo SVD (Descomposición Singular de Valores). 
+- Se genera el modelo de recomendación.
+- Se calcula el error cuadrático medio (RMSE) y el error absoluto medio (MAE) al modelo. 
+- Se desarrolla una interfax para el MVP del sistema de recomendación a través de Gradio.
 
 [**ML model**](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/Notebooks/ML_model.ipynb)
 <hr>
