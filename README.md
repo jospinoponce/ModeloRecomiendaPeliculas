@@ -127,14 +127,14 @@ Se usa la librería Suprise, Gradio.<br>
 - Se validan hiperparámetros.
 - Se desarrolla una interfax para el MVP del sistema de recomendación a través de Gradio.
 
-<img src="_src/2.png" width="700" height="250px">
+<img src="_src/2.png" width="800" height="320px">
 
 *Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/3.ML_model.ipynb)
 
 Se puede acceder a la consulta de la interfaz a traves de este link: [**MVP_MODELO**](https://73cc22ab0b93164c6a.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
 <hr>
 
-## 3. Conclución
+## 4. Conclución
 
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, el modelo comete un error absoluto medio del  75% en las predicciones de calificaciones de películas para un usuario, esto significa que es capaz de hacer predicciones precisas. El valor de RMSE es de 0.96 es relativamente alto, el modelo tiene una gran variabilidad en las predicciones.
 
