@@ -134,7 +134,7 @@ Se usa la librería Suprise, Gradio.<br>
 Se puede acceder a la consulta de la interfaz a traves de este link: [**MVP_MODELO**](https://73cc22ab0b93164c6a.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
 <hr>
 
-## 5. Conclución
+## 3. Conclución
 
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, el modelo comete un error absoluto medio del  75% en las predicciones de calificaciones de películas para un usuario, esto significa que es capaz de hacer predicciones precisas. El valor de RMSE es de 0.96 es relativamente alto, el modelo tiene una gran variabilidad en las predicciones.
 
