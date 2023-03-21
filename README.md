@@ -52,9 +52,9 @@ Los requerimientos que plantea [Soy Henry](https://www.soyhenry.com/) son:<br>
 ## 3. Recursos implementados
 
 Python Version: 3.9<br>
-Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise<br>
-Render<br>
-Framework FastAPI <hr>
+Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise, Gradio.<br>
+Render.<br>
+Framework FastAPI. <hr>
 
 ### 2.1. ETL Limpieza de datos
 
@@ -115,15 +115,28 @@ Se determina que:
 
 ### 2.5. Sistema de recomendación ML
 
+EL sistema de recomendación que se desarrolla define si para un id usuario seleccionado una película determinada sería recomendable o no.<br> 
+
+El modelo establece una recomendación positiva a una calificacion predicha superior al 3,7 de rating en un score del 1 al 5.
+
 Se usa la librería Suprise, Gradio.<br>
 
 - Se instancia y se entrena un modelo SVD (Descomposición Singular de Valores). 
 - Se genera el modelo de recomendación.
 - Se calcula el error cuadrático medio (RMSE) y el error absoluto medio (MAE) al modelo. 
+- Se validan hiperparámetros.
 - Se desarrolla una interfax para el MVP del sistema de recomendación a través de Gradio.
 
-[**ML model**](https://github.com/jospinoponce/MLmodelRecomendacionPeliculas/blob/main/Notebooks/ML_model.ipynb)
+<img src="_src/2.png" width="700" height="250px">
+
+*Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/3.ML_model.ipynb)
+
+Se puede acceder a la consulta de la interfaz a traves de este link: [**MVP_MODELO**](https://73cc22ab0b93164c6a.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
 <hr>
 
 ## 5. Conclución
-## 6. Recomendaciones
+
+Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, el modelo comete un error absoluto medio del  75% en las predicciones de calificaciones de películas para un usuario, esto significa que es capaz de hacer predicciones precisas. El valor de RMSE es de 0.96 es relativamente alto, el modelo tiene una gran variabilidad en las predicciones.
+
+Para modelos de recomendación de películas,  es importante tener en cuenta otros aspectos, como la diversidad y serendipia de las recomendaciones, la cobertura de las recomendaciones, la escalabilidad,  la capacidad de explicar las recomendaciones. Variables que no se tienen en cuenta para el desarrollo de este proyecto.
+
