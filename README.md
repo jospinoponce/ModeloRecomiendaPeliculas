@@ -131,7 +131,7 @@ Se usa la librería Suprise, Gradio.<br>
 
 *Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/3.ML_model.ipynb)
 
-Se puede acceder a la consulta de la interfaz a traves de este link: [**MVP_MODELO**](https://73cc22ab0b93164c6a.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
+Se puede acceder a la consulta de la interfaz a traves de este link: [**MVP_MODELO**](https://8f0d1b62a3c4a3bbb2.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
 <hr>
 
 ## 4. Conclución
