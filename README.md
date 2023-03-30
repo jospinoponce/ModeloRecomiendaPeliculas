@@ -6,9 +6,7 @@
 
 ## 1. Introducción
 
-Se realiza la ingesta y análisis a datos informativos de series y películas de las plataformas (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que por medio de Ciencia de Datos y Machine Learning  permita generar recomendaciones en las aplicaciones de estas plataformas de streaming a  usuarios activos que realizaron reseñas a películas o series que hayan visto. <br>
-
-Se cuenta con doce (12) datasets. Los cuales contienen las películas/series de cada plataforma de streaming e información de las calificaciones de películas generadas por los usuarios de estas aplicaciones. Se aplican las transformaciones pertinentes a los datasets para disponibilizar los datos limpios y generar consultas a través de una API construida en un entorno virtual dockerizado.<br>
+Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican las transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
 
 Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones históricas en las plataformas de streaming.
 <hr>
@@ -115,7 +113,7 @@ Se puede acceder a la consulta de la interfaz a través de este link: [**MVP_MOD
 
 ## 7. Conclusión
 
-Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, el modelo comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que es capaz de hacer predicciones precisas. El valor de RMSE es de 0.96 es relativamente alto, el modelo tiene una gran variabilidad en las predicciones.
+Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que hace predicciones precisas. El valor de RMSE es de 0.96 es alto, el modelo tiene una gran variabilidad en las predicciones.
 
-Para modelos de recomendación de películas, es importante tener en cuenta otros aspectos, como la diversidad y serendipia de las recomendaciones, la cobertura de las recomendaciones, la escalabilidad, la capacidad de explicar las recomendaciones. Variables que no se tienen en cuenta para el desarrollo de este proyecto.
+Para modelos de recomendación de películas, es importante tener en cuenta otros aspectos como: la diversidad, serendipia de las recomendaciones, cobertura de las recomendaciones, escalabilidad, capacidad de explicar las recomendaciones. Variables que no se tienen en cuenta para el desarrollo de este modelo.
 
