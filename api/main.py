@@ -22,7 +22,7 @@ async def about():
 @app.on_event('startup')
 async def startup():
    global df
-   df = pd.read_csv('Datasets/df.csv')
+   df = pd.read_csv('../Datasets/df.csv')
 
 
 # DESARROLLO DE CONSULTAS
@@ -67,7 +67,7 @@ async def get_score_count(platform:str,score:float, year:int ):
    if year is not None and year not in [1995, 1996, 1997, 1998, 1999, 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016, 2017]:
       return f'ValueError: No hay registros para este año el rango es 1995-2017'
 
-   df_1 = pd.read_parquet('Datasets/df_1.parquet')
+   df_1 = pd.read_parquet('../Datasets/df_1.parquet')
    movie=df_1[(df_1['plataforma']==platform) & (df_1['score']>score) & (df_1['year_scored']==year)]
    movie=movie.groupby(["id","plataforma"])[['score']].mean().shape[0]
    return f" {platform}: tiene {movie} peliculas con un score mayor a {score}  " 

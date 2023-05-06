@@ -1,4 +1,4 @@
-# <h1> Pj_05-001 Desarrollo de un Modelo de Machine Learning para la recomendación de peliculas en plataformas de streaming</h1> 
+# <h1> Pj_05-001 Desarrollo de un Modelo de Machine Learning para la recomendación de películas en plataformas de streaming</h1> 
 ## **HENRY BOOTCAMP | Proyecto Individual Nº1** **`Machine Learning Operations (MLOps)`**
 <hr>
 
@@ -8,9 +8,8 @@
 
 Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican las transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
 
-Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones históricas en las plataformas de streaming.
+Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones.
 <hr>
-
 
 ## 2. Recursos implementados
 
@@ -67,7 +66,7 @@ Se implementa la nube del web service gratuito que proporciona [Render.com](http
 
 ## 5. Análisis Exploratorio de datos EDA
 
-Se usan las librerias de Matplotlib y Seaborn para el desarrollo de gráficas que permitan analizar la distribución de los datos previamente transformados.<br>
+Se usan las librerías de Matplotlib y Seaborn para el desarrollo de gráficas que permitan analizar la distribución de los datos previamente transformados.<br>
 
 Se determina que:
 
@@ -84,7 +83,7 @@ Se determina que:
 *Los usuarios ven en las plataformas de streaming más películas que series.*<br>
 *La plataforma de streaming que más visualizaciones tiene es netflix.*<br>
 *Las dos películas más vistas con más de 560 reseñas son de amazon "from other worlds" y "the organization".*<br>
-*El género de peliculas o series que más visualizaciones tiene es "comedia".*
+*El género de películas o series que más visualizaciones tiene es "comedia".*
 
 <img src="_src/1.png" width="700" height="500px">
 
@@ -108,7 +107,7 @@ Se usa la librería Surprise, Gradio.<br>
 
 *Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/3.ML_model.ipynb)
 
-Se puede acceder a la consulta de la interfaz a través de este link: [**MVP_MODELO**](https://8f0d1b62a3c4a3bbb2.gradio.live/) (*Solo estará acccesible durante 72h a partir del ultimo update de este repositorio*) 
+Se puede acceder a la consulta de la interfaz a través de este link: [**MVP_MODELO**](https://8f0d1b62a3c4a3bbb2.gradio.live/) (*Solo estará accesible durante 72h a partir del ultimo update de este repositorio*) 
 <hr>
 
 ## 7. Conclusión
