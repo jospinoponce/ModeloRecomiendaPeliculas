@@ -38,7 +38,7 @@ El proceso de ETL se realiza con estos datos de origen: [**data**](https://drive
 
 - Se crean dos datasets para realizar consultas: ( [**df.csv** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df.csv) tiene los datos de todas las películas y series. ) & ([**df_1.parquet** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df_1.parquet): almacena calificaciones realizadas por usuarios en las plataformas).<br>
 
-*Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/1.ETL_report.ipynb)<hr>
+*Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/1.ETL_report.ipynb)<hr>
 
 ## 4. Desarrollo API
 
@@ -87,7 +87,7 @@ Se determina que:
 
 <img src="_src/1.png" width="700" height="500px">
 
-*Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/2.EDA_report.ipynb)<hr>
+*Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/2.EDA_report.ipynb)<hr>
 
 ## 6. Sistema de recomendación ML
 
@@ -105,9 +105,10 @@ Se usa la librería Surprise, Gradio.<br>
 
 <img src="_src/2.png" width="800" height="320px">
 
-*Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Notebooks/3.ML_model.ipynb)
 
-Se puede acceder a la consulta de la interfaz a través de este link: [**MVP_MODELO**](https://8f0d1b62a3c4a3bbb2.gradio.live/) (*Solo estará accesible durante 72h a partir del ultimo update de este repositorio*) 
+
+Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/3.ML_model.ipynb)
+
 <hr>
 
 ## 7. Conclusión
