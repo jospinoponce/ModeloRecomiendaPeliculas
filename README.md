@@ -9,8 +9,8 @@ Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Dis
 Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones. <hr>
 
 ## 2. Objetivos
-- Desarrollar una API que permita realizar 4 consultas a los datos de las películas.
-- Embeber el modelo de machine learning en una app para generar el MVP.<hr>
+- Desarrollar una API que permita al usuario realizar 4 consultas a los datos de las películas y series.
+- Embeber el modelo de machine learning en una app disponibilizada al usuario.<hr>
 
 ## 3. Recursos implementados
 
