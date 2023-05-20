@@ -1,16 +1,16 @@
 # <h1> Pj_05-001 Desarrollo de un Modelo de Machine Learning para la recomendación de películas en plataformas de streaming</h1> 
 
-*El presente proyecto se desarrolla para dar cumplimiento a las actividades planteadas en la etapa de labs en el Bootcamp de Data Science de [Soy Henry](https://www.soyhenry.com/). Pretende abarcar todo el ciclo de vida de un proyecto de Machine Learning  desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML.*<br>
+*El presente proyecto se desarrolla para dar cumplimiento a las actividades planteadas en la etapa de labs en el Bootcamp de Data Science de [Soy Henry](https://www.soyhenry.com/). Pretende abarcar todo el ciclo de vida de un proyecto de Machine Learning  desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML.*<hr>
 
 ## 1. Introducción
 
 Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican  transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
 
-Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones.
+Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones. <hr>
 
 ## 2. Objetivos
 - Desarrollar una API que permita realizar 4 consultas.
-- Realizar el deploy del modelo ML en una app para que sea accesible a usuarios.
+- Realizar el deploy del modelo ML en una app para que sea accesible a usuarios.<hr>
 
 ## 3. Recursos implementados
 
@@ -68,8 +68,7 @@ Se utiliza el Framework FastAPI. Se disponibilizan las siguientes consultas:<br>
 Se implementa la nube del web service gratuito que proporciona [Render.com](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
 
 *Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
- <hr>
-
+ 
 ### 5.2 Sistema de recomendación ML
 
 EL sistema de recomendación que se desarrolla define si para un id usuario seleccionado una película determinada sería recomendable o no.<br> 
@@ -85,7 +84,6 @@ Se usa la librería Surprise, Gradio.<br>
 - Se desarrolla una interfax para el MVP del sistema de recomendación a través de Gradio.
 
 <img src="_src/2.png" width="800" height="320px">
-
 
 
 Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos realizados para el Modelado de Machine Learning están en el notebook:* [**3.ML_model**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/3.ML_model.ipynb)
