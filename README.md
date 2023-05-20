@@ -6,7 +6,7 @@
 
 ## 1. Introducción
 
-Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican las transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
+Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican  transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
 
 Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones.
 <hr>
@@ -18,23 +18,11 @@ Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise, Gradio.<br>
 Render.<br>
 Framework FastAPI. <hr>
 
-## 3. ETL Limpieza de datos
+## 3. ETL
 
-El proceso de ETL se realiza con estos datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing) y se implementa la librería de pandas para las trasformaciones necesarias.<br>
+Los datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing).<br>
 
 - Se cargan los datos para su normalización. <br>
-
-- Se realizan los requerimientos planteados por [Soy Henry](https://www.soyhenry.com/).<br>
-
-    * *Generar campo id: Cada id se compondrá de la primera letra del nombre de la plataforma, seguido del show_id ya presente en los datasets (ejemplo para títulos de Amazon = as123)*
-
-    * *Los valores nulos del campo rating deberán reemplazarse por el string “G” (corresponde al maturity rating: “general for all audiences”)*
-
-    * *Las fechas, deberán tener el formato AAAA-mm-dd*
-
-    * *Los campos de texto deberán estar en minúsculas, sin excepciones*
-
-    * *El campo duration debe convertirse en dos campos: duration_int y duration_type. El primero será un integer y el segundo un string indicando la unidad de medición de duración: min (minutos) o season (temporadas).*
 
 - Se crean dos datasets para realizar consultas: ( [**df.csv** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df.csv) tiene los datos de todas las películas y series. ) & ([**df_1.parquet** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df_1.parquet): almacena calificaciones realizadas por usuarios en las plataformas).<br>
 
@@ -42,16 +30,11 @@ El proceso de ETL se realiza con estos datos de origen: [**data**](https://drive
 
 ## 4. Desarrollo API
 
-Se utiliza el Framework FastAPI basado en python.<br>
-
-Se disponibilizan los datos para realizar funciones que ejecuten las siguientes consultas:
+Se utiliza el Framework FastAPI. Se disponibilizan los datos para realizar funciones que ejecuten las siguientes consultas:<br>
 
 * *Película con mayor duración con filtros de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (función: get_max_duration(year, platform, duration_type))*
-
 * *Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año (función: get_score_count(platform, scored, year))*
-
 * *Cantidad de películas por plataforma con filtro de PLATAFORMA. (función:  get_count_platform(platform))*
-
 * *Actor que más se repite según plataforma y año. (función: get_actor(platform, year))*
 
 *Los procesos realizados están en el .py:* [**main.py**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/main.py)
@@ -116,4 +99,5 @@ Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que hace predicciones precisas. El valor de RMSE es de 0.96 es alto, el modelo tiene una gran variabilidad en las predicciones.
 
 Para modelos de recomendación de películas, es importante tener en cuenta otros aspectos como: la diversidad, serendipia de las recomendaciones, cobertura de las recomendaciones, escalabilidad, capacidad de explicar las recomendaciones. Variables que no se tienen en cuenta para el desarrollo de este modelo.
+
 
