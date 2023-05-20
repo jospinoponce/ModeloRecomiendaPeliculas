@@ -18,40 +18,19 @@ Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise, Gradio.<br>
 Render.<br>
 Framework FastAPI. <hr>
 
-## 3. ETL
-
+## 3. Desarrollo
+### 3.1 ETL
 Los datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing).<br>
 
-- Se cargan los datos para su normalización. <br>
+- Se cargan los datos para su normalización (Tratamiento de nulos, valores duplicados, formateo de variables, entre otros..).. <br>
 
 - Se crean dos datasets para realizar consultas: ( [**df.csv** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df.csv) tiene los datos de todas las películas y series. ) & ([**df_1.parquet** ](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/Datasets/df_1.parquet): almacena calificaciones realizadas por usuarios en las plataformas).<br>
 
-*Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/1.ETL_report.ipynb)<hr>
+*Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/1.ETL_report.ipynb)
 
-## 4. Desarrollo API
-
-Se utiliza el Framework FastAPI. Se disponibilizan los datos para realizar funciones que ejecuten las siguientes consultas:<br>
-
-* *Película con mayor duración con filtros de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (función: get_max_duration(year, platform, duration_type))*
-* *Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año (función: get_score_count(platform, scored, year))*
-* *Cantidad de películas por plataforma con filtro de PLATAFORMA. (función:  get_count_platform(platform))*
-* *Actor que más se repite según plataforma y año. (función: get_actor(platform, year))*
-
-*Los procesos realizados están en el .py:* [**main.py**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/main.py)
-<hr>
-
-#### 4.1 Deployment
-
-Se implementa la nube del web service gratuito que proporciona [Render.com](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
-
-*Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
- <hr>
-
-## 5. Análisis Exploratorio de datos EDA
+### 3.2 Análisis Exploratorio de datos EDA
 
 Se usan las librerías de Matplotlib y Seaborn para el desarrollo de gráficas que permitan analizar la distribución de los datos previamente transformados.<br>
-
-Se determina que:
 
 *115077 usuarios realizaron 11005757  calificaciones a películas/series en las distintas plataformas streaming con un score de 1 a 5.*
 
@@ -72,7 +51,30 @@ Se determina que:
 
 *Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/2.EDA_report.ipynb)<hr>
 
-## 6. Sistema de recomendación ML
+## 4. Resultados
+
+### 4.1 Desarrollo API
+
+Se utiliza el Framework FastAPI. Se disponibilizan los datos para realizar funciones que ejecuten las siguientes consultas:<br>
+
+* *Película con mayor duración con filtros de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (función: get_max_duration(year, platform, duration_type))*
+* *Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año (función: get_score_count(platform, scored, year))*
+* *Cantidad de películas por plataforma con filtro de PLATAFORMA. (función:  get_count_platform(platform))*
+* *Actor que más se repite según plataforma y año. (función: get_actor(platform, year))*
+
+*Los procesos realizados están en el .py:* [**main.py**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/main.py)
+<hr>
+
+#### Deployment
+
+Se implementa la nube del web service gratuito que proporciona [Render.com](https://render.com/) para realizar el deploy y correr en su entorno la app.<br> 
+
+*Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
+ <hr>
+
+
+
+## 5. Sistema de recomendación ML
 
 EL sistema de recomendación que se desarrolla define si para un id usuario seleccionado una película determinada sería recomendable o no.<br> 
 
@@ -94,7 +96,7 @@ Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos
 
 <hr>
 
-## 7. Conclusión
+## 6. Conclusión
 
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que hace predicciones precisas. El valor de RMSE es de 0.96 es alto, el modelo tiene una gran variabilidad en las predicciones.
 
