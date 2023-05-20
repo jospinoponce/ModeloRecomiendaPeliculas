@@ -1,6 +1,4 @@
 # <h1> Pj_05-001 Desarrollo de un Modelo de Machine Learning para la recomendación de películas en plataformas de streaming</h1> 
-## **HENRY BOOTCAMP | Proyecto Individual Nº1** **`Machine Learning Operations (MLOps)`**
-<hr>
 
 *El presente proyecto se desarrolla para dar cumplimiento a las actividades planteadas en la etapa de labs en el Bootcamp de Data Science de [Soy Henry](https://www.soyhenry.com/). Pretende abarcar todo el ciclo de vida de un proyecto de Machine Learning  desde el tratamiento y recolección de los datos (Data Engineer stuff) hasta el entrenamiento y mantenimiento del modelo de ML.*<br>
 
@@ -9,17 +7,20 @@
 Se realiza la ingesta y análisis a datos de series y películas en (Amazon, Disney, Hulu, Netflix) para llevar a cabo un **`MVP`** (_Minimum Viable Product_) de un sistema que permita generar recomendaciones de peliculas y series a usuarios que realizaron reseñas en estas plataformas de streaming. Se cuenta con doce (12) datasets. Se aplican  transformaciones pertinentes para disponibilizar los datos y generar consultas a través de una API construida en un entorno virtual dockerizado. <br>
 
 Se implementa un modelo de machine learnig ML no supervisado. Usando la técnica: descomposición singular de valores (SVD) se analiza y predice las preferencias de películas y series del usuario dada sus calificaciones.
-<hr>
 
-## 2. Recursos implementados
+## 2. Objetivos
+- Desarrollar una API que permita realizar 4 consultas.
+- Realizar el deploy del modelo ML en una app para que sea accesible a usuarios.
+
+## 3. Recursos implementados
 
 Python Versión: 3.9<br>
 Packages: Uvicorn, Pandas, Matplotlib, Seaborn, Surprise, Gradio.<br>
 Render.<br>
 Framework FastAPI. <hr>
 
-## 3. Desarrollo
-### 3.1 ETL
+## 4. Desarrollo
+### 4.1 ETL
 Los datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpuOBCjlyEr86vpNFoYGloQ0bB9?usp=sharing).<br>
 
 - Se cargan los datos para su normalización (Tratamiento de nulos, valores duplicados, formateo de variables, entre otros..).. <br>
@@ -28,9 +29,7 @@ Los datos de origen: [**data**](https://drive.google.com/drive/folders/1_aDmVMpu
 
 *Los procesos realizados para el ETL están en el notebook:* [**1.ETL**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/1.ETL_report.ipynb)
 
-### 3.2 Análisis Exploratorio de datos EDA
-
-Se usan las librerías de Matplotlib y Seaborn para el desarrollo de gráficas que permitan analizar la distribución de los datos previamente transformados.<br>
+### 4.2 Análisis Exploratorio de datos EDA
 
 *115077 usuarios realizaron 11005757  calificaciones a películas/series en las distintas plataformas streaming con un score de 1 a 5.*
 
@@ -51,11 +50,11 @@ Se usan las librerías de Matplotlib y Seaborn para el desarrollo de gráficas q
 
 *Los procesos realizados para el EDA están en el notebook:* [**2.EDA**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/2.EDA_report.ipynb)<hr>
 
-## 4. Resultados
+## 5. Resultados
 
-### 4.1 Desarrollo API
+### 5.1 Desarrollo API
 
-Se utiliza el Framework FastAPI. Se disponibilizan los datos para realizar funciones que ejecuten las siguientes consultas:<br>
+Se utiliza el Framework FastAPI. Se disponibilizan las siguientes consultas:<br>
 
 * *Película con mayor duración con filtros de AÑO, PLATAFORMA Y TIPO DE DURACIÓN. (función: get_max_duration(year, platform, duration_type))*
 * *Cantidad de películas por plataforma con un puntaje mayor a XX en determinado año (función: get_score_count(platform, scored, year))*
@@ -71,7 +70,7 @@ Se implementa la nube del web service gratuito que proporciona [Render.com](http
 *Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
  <hr>
 
-### 4.2 Sistema de recomendación ML
+### 5.2 Sistema de recomendación ML
 
 EL sistema de recomendación que se desarrolla define si para un id usuario seleccionado una película determinada sería recomendable o no.<br> 
 
@@ -93,7 +92,7 @@ Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos
 
 <hr>
 
-## 5. Conclusión
+## 6. Conclusión
 
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que hace predicciones precisas. El valor de RMSE es de 0.96 es alto, el modelo tiene una gran variabilidad en las predicciones.
 
