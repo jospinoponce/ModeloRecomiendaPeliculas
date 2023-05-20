@@ -63,7 +63,6 @@ Se utiliza el Framework FastAPI. Se disponibilizan los datos para realizar funci
 * *Actor que más se repite según plataforma y año. (función: get_actor(platform, year))*
 
 *Los procesos realizados están en el .py:* [**main.py**](https://github.com/jospinoponce/ModeloRecomiendaPeliculas/blob/main/main.py)
-<hr>
 
 #### Deployment
 
@@ -72,9 +71,7 @@ Se implementa la nube del web service gratuito que proporciona [Render.com](http
 *Las consultas a la API, URL:* [**API_RENDER**](https://consultas-api-peliculas-3.onrender.com)<br>
  <hr>
 
-
-
-## 5. Sistema de recomendación ML
+### 4.2 Sistema de recomendación ML
 
 EL sistema de recomendación que se desarrolla define si para un id usuario seleccionado una película determinada sería recomendable o no.<br> 
 
@@ -96,7 +93,7 @@ Se puede acceder a la consulta de la interfaz a través de Gradio. *Los procesos
 
 <hr>
 
-## 6. Conclusión
+## 5. Conclusión
 
 Se concluye que como un **`MVP`** (_Minimum Viable Product_) el modelo es aceptable. Tiene un MAE de 0.75 indicando que, en promedio, comete un error absoluto medio del 75% en las predicciones de calificaciones de películas para un usuario, esto significa que hace predicciones precisas. El valor de RMSE es de 0.96 es alto, el modelo tiene una gran variabilidad en las predicciones.
 
